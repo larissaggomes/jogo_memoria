@@ -3,12 +3,10 @@ const grid = document.querySelector('.grid');
 const characters = [
     'luz',
     'amity',
-    'collector',
     'eda',
     'gus',
     'hunter',
     'king',
-    'lilith',
     'vee',
     'willow',
 ]
@@ -26,15 +24,22 @@ const checkCards = () =>{
     const firstCharacter = firstcard.getAttribute('data-character');
     const secondCharacter = secondcard.getAttribute('data-character');
 
+
     if (firstCharacter === secondCharacter) {
         
+        firstcard.firstChild.classList.add('disable-card');
+        secondcard.firstChild.classList.add('disable-card');
 
-
+        firstcard = "";
+        secondcard = "";
     }else {
 
         setTimeout(() => {
         firstcard.classList.remove('reveal-card');
         secondcard.classList.remove('reveal-card');
+
+        firstcard = "";
+        secondcard = "";
         }, 500);
     }
 }

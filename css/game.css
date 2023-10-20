@@ -10,7 +10,6 @@
 .card{
     aspect-ratio: 3/4;
     width: 100%;
-    background-color: #333;
     border-radius: 5px;
     position: relative;
     transition: all 400ms ease;
@@ -38,4 +37,9 @@
 
 .reveal-card{
     transform: rotateY(180deg);
+}
+
+.disable-card{
+    filter: saturate(0);
+    opacity: 0.5;
 }
