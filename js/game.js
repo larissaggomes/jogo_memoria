@@ -11,7 +11,6 @@ const characters = [
     'lilith',
     'vee',
     'willow',
-    
 ]
 
 const createElement = (tag, className) =>{
@@ -20,8 +19,42 @@ const createElement = (tag, className) =>{
     return element;
 }
 
+let firstcard = '';
+let secondcard = '';
+
+const checkCards = () =>{
+    const firstCharacter = firstcard.getAttribute('data-character');
+    const secondCharacter = secondcard.getAttribute('data-character');
+
+    if (firstCharacter === secondCharacter) {
+        
+
+
+    }else {
+
+        setTimeout(() => {
+        firstcard.classList.remove('reveal-card');
+        secondcard.classList.remove('reveal-card');
+        }, 500);
+    }
+}
+
 const revealcard = ({target}) =>{
-    target.parentNode.classList.add('reveal-card');
+
+    if (target.parentNode.className.includes('reveal-card')) {
+        return;
+    }
+
+    if (firstcard === '') {
+        target.parentNode.classList.add('reveal-card');
+        firstcard = target.parentNode;
+    }else if (secondcard === ''){
+        target.parentNode.classList.add('reveal-card');
+        secondcard = target.parentNode;
+
+        checkCards();
+    }
+
 }
 
 const createCard = (character) =>{
@@ -36,6 +69,7 @@ const createCard = (character) =>{
     card.appendChild(back);
 
     card.addEventListener('click', revealcard);
+    card.setAttribute('data-character', character)
 
     return card;
 }
