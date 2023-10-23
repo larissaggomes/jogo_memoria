@@ -11,7 +11,10 @@ const ValidateInput = ({target}) =>{
 }
 
 const handlesubmit = (event) => {
-    console.log('logando...');
+    event.preventDefault();
+
+    localStorage.setItem('player', input.value);
+    window.location = 'game.html';
 }
 
 input.addEventListener('input', ValidateInput);
