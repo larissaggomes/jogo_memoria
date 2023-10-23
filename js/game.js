@@ -1,4 +1,6 @@
 const grid = document.querySelector('.grid');
+const spanPlayer = document.querySelector('.player');
+const timer = document.querySelector('.timer');
 
 const characters = [
     'luz',
@@ -9,6 +11,8 @@ const characters = [
     'king',
     'vee',
     'willow',
+    'lilith',
+    'collector'
 ]
 
 const createElement = (tag, className) =>{
@@ -21,7 +25,7 @@ let firstcard = '';
 let secondcard = '';
 
 const checkEndGame = () =>{
-    const disabledcards = document.querySelectorAll('.disable-card');
+    const disabledcards = document.querySelectorAll('.disabled-card');
 
     if (disabledcards.lenght === 20) {
         alert('Parabéns, Você conseguiu!'); 
@@ -35,8 +39,8 @@ const checkCards = () =>{
 
     if (firstCharacter === secondCharacter) {
         
-        firstcard.firstChild.classList.add('disable-card');
-        secondcard.firstChild.classList.add('disable-card');
+        firstcard.firstChild.classList.add('disabled-card');
+        secondcard.firstChild.classList.add('disabled-card');
 
         firstcard = "";
         secondcard = "";
@@ -102,4 +106,19 @@ const loadGame = () => {
     });
 }
 
-loadGame();
+const startTime = () =>{
+
+    setInterval(() => {
+        const currentTime = +timer.innerHTML;
+        timer.innerHTML = currentTime + 1;
+    }, 1000);
+
+}
+
+window.onload = () =>{
+    spanPlayer.innerHTML = localStorage.getItem('player');
+    startTime();
+    loadGame();
+}
+
+console.log(this);
