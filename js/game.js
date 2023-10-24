@@ -25,10 +25,11 @@ let firstcard = '';
 let secondcard = '';
 
 const checkEndGame = () =>{
-    const disabledcards = document.querySelectorAll('.disabled-card');
+    const disabledCards = document.querySelectorAll('.disabled-card');
 
-    if (disabledcards.lenght === 20) {
-        alert('Parabéns, Você conseguiu!'); 
+    if (disabledCards.length === 20) {
+        clearInterval(this.loop);
+        alert(`parabens, ${spanPlayer.innerHTML}! seu tempo acabou: ${timer.innerHTML}`); 
     }
 }
 
@@ -97,7 +98,7 @@ const loadGame = () => {
 
     const duplicateCharacters = [ ...characters, ...characters];
 
-    const shuffledArray = duplicateCharacters.sort(() => Math.random = 0.5);
+    const shuffledArray = duplicateCharacters.sort(() => Math.random() - 0.5);
 
     shuffledArray.forEach((character) => {
         const card = createCard(character);
@@ -108,7 +109,7 @@ const loadGame = () => {
 
 const startTime = () =>{
 
-    setInterval(() => {
+    this.loop = setInterval(() => {
         const currentTime = +timer.innerHTML;
         timer.innerHTML = currentTime + 1;
     }, 1000);
@@ -120,5 +121,3 @@ window.onload = () =>{
     startTime();
     loadGame();
 }
-
-console.log(this);
