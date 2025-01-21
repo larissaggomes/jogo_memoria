@@ -1,6 +1,7 @@
 # Jogo da Memória - Projeto de Estudo
 
 Este repositório contém o código-fonte do "Jogo da Memória", desenvolvido como parte de um estudo de HTML, CSS e JavaScript. O jogo desafia os jogadores a encontrarem pares de cartas com a mesma imagem.
+
 🎮 Funcionalidades
 
    * Cartas embaralhadas e viradas para baixo no início do jogo.
